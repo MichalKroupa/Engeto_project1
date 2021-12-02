@@ -31,13 +31,16 @@ in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present.'''
 ]
 
+#Vytvoření slovníku s uživatelským jménem a heslem
 Users = {"bob": "123", "ann": "pass123", "mike": "password123", "liz": "pass123"}
 oddelovac = "----------------------------------------"
 
+#Vstup uživatele
 username = input("username: ")
 password = input("password: ")
 print(oddelovac)
 
+#Ověření uživatelského jména a hesla
 if username in Users:
 
     if Users[username] == password:
@@ -57,8 +60,10 @@ else:
     print(oddelovac)
     quit()
 
+#výběr textu
 choice = input(f"Enter a number btw. 1 and {len(TEXTS)} to select: ")
 print(oddelovac)
+#ověření vstupu od uživatele, zda jde o int a zda daný text existuje
 if choice.isnumeric():
     choice = int(choice)
     if choice > len(TEXTS):
@@ -80,21 +85,28 @@ lowercase_count = 0
 numeric_count = 0
 numbers = []
 
+#Procházení slov ve vybraném textu
 for word in TEXTS[choice-1].split():
     word = word.strip(".:,")
+    #Zkouška zda je slovo číslo
     if word.isnumeric():
         numeric_count+=1
         numbers.append(int(word))
         words_count += 1
+    #Pokud je slovo string
     else:
         words_count += 1
+        #Pokud je slovo psané velkým písmem, a pokud v tom není číslo
         if word.isupper() and word.isalpha():
             uppercase_count += 1
+        #Pokud je velké počáteční písmenu
         elif word[0] == word[0].title():
             titlecase_count += 1
+        #Pokud je slovo psané malým písmem
         elif word.islower():
             lowercase_count += 1
 
+#Výpis analýzy textu
 print(f"There are {words_count} words in the selected text.")
 print(f"There are {titlecase_count} titlecase words.")
 print(f"There are {uppercase_count} uppercase words.")
@@ -107,13 +119,16 @@ print("LEN| OCCURENCES    |NR.")
 print(oddelovac)
 
 word_length = dict()
+#Procházení textu a ukládání jeho délky a počet výskytu do slovníku
 for word in TEXTS[choice-1].split():
     word = word.strip(".:,")
     if len(word) not in word_length:
         word_length.setdefault(len(word), 1)
     else:
         word_length[len(word)] += 1
+
 star = "*"
+#Seřadí slovník, vypíše pořadí a počet výskytu vyjádřený hvězdami a číslem
 for occurence in sorted(word_length.items()):
     print(f"{occurence[0]:>2}|{star * occurence[1]:<15} | {occurence[1]}")
 
