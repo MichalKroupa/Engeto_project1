@@ -117,3 +117,4 @@ star = "*"
 for occurence in sorted(word_length.items()):
     print(f"{occurence[0]:>2}|{star * occurence[1]:<15} | {occurence[1]}")
 
+
