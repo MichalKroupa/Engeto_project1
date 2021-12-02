@@ -1,5 +1,5 @@
 '''
-author = 
+author = Michal Kroupa
 '''
 TEXTS = ['''
 Situated about 10 miles west of Kemmerer, 
