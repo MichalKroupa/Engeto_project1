@@ -100,7 +100,7 @@ for word in TEXTS[choice-1].split():
         if word.isupper() and word.isalpha():
             uppercase_count += 1
         #Pokud je velké počáteční písmenu
-        elif word[0] == word[0].title():
+        elif word == word.title():
             titlecase_count += 1
         #Pokud je slovo psané malým písmem
         elif word.islower():
